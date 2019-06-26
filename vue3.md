@@ -62,7 +62,7 @@ rted by default): (Use arrow keys)
 有touchstart touchmove touchend touchcancel 四种之分    
   touchstart：手指触摸到屏幕会触发  
   touchmove：当手指在屏幕上移动时，会触发  
-  touchend：当手指离开屏幕时，会触发  
+  touchEnd：当手指离开屏幕时，会触发  
   touchcancel：可由系统进行的触发，比如手指触摸屏幕的时候，突然alert了一下，或者系统中其他打断了touch的行为，则可以触发该事件  
  + 3. tap类事件  
 触碰事件，我目前还不知道它和touch的区别，一般用于代替click事件，有tap longTap singleTap doubleTap四种之分  
