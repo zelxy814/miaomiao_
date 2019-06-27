@@ -4,7 +4,7 @@
         <div id="content">
             <div class="movie_menu">
                 <router-link tag="div" to="/movie/city" class="city_name">
-                    <span>北京</span><i class="iconfont icon-lower-triangle"></i>
+                    <span>{{$store.state.city.nm}}</span><i class="iconfont icon-lower-triangle"></i>
                 </router-link>
                 <div class="hot_swtich">
                     <router-link tag="div" to="/movie/nowPlaying" class="hot_item">正在热映</router-link>
@@ -18,7 +18,6 @@
                 <router-view />
             </keep-alive>
         </div>
-
         <TabBarVue></TabBarVue>
     </div>
 </template>
@@ -26,11 +25,13 @@
 <script>
     import HeaderVue from '@/components/Header'
     import TabBarVue from '@/components/TabBar'
+    import MessageBox from "@/components/Js/messageBox"
     export default {
         name: "Movie",
         components:{
             HeaderVue,
-            TabBarVue
+            TabBarVue,
+            MessageBox
         }
     }
 </script>

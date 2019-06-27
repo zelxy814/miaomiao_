@@ -10,6 +10,11 @@ Vue.prototype.axios = axios;
 Vue.filter('setWH',(url,arg)=>{
   return url.replace(/w\.h/,arg);
 });
+import Scroll from '@/components/Scroll'
+import Loading from '@/components/Loading'
+// 注册全局组件,其他组件不用再引入就使用了
+Vue.component('Scroll',Scroll);
+Vue.component('Loading',Loading);
 new Vue({
   router,
   store,

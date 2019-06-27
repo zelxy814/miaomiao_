@@ -9,7 +9,8 @@
         </div>
         <div class="search_result">
             <h3>电影/电视剧/综艺</h3>
-            <ul>
+            <Loading v-if="isLoading&&message"></Loading>
+            <ul v-else>
                 <li v-for="item in moviesList" :key="item.id">
                     <div class="img"><img :src="item.img | setWH('128.180')" alt="图片加载中"></div>
                     <div class="info">
@@ -31,7 +32,8 @@
         data(){
           return {
               message:'',
-              moviesList:[]
+              moviesList:[],
+              isLoading: true
           }
         },
         methods:{
@@ -45,9 +47,9 @@
         // 监听搜索
         watch:{
             message(newVal){
-
+                let cityId = this.$store.state.city.id;
                 this.cancelRequest();
-                this.axios.get('/api/searchList?cityId=10&kw='+newVal,{
+                this.axios.get('/api/searchList?cityId='+cityId+'&kw='+newVal,{
                     cancelToken: new this.axios.CancelToken((c)=>{
                         this.source = c;
                     })
@@ -56,6 +58,7 @@
                     let movies = res.data.data.movies;
                     if(msg&&movies){
                         this.moviesList = movies.list;
+                        this.isLoading = false;
                     }
                 }).catch((err) => {
                     if (this.axios.isCancel(err)){
