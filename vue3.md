@@ -53,3 +53,32 @@ rted by default): (Use arrow keys)
 ## vue3与vue2的区别
 - 3.0：vue create 进入工程文件夹，创建项目。
 - 2.0：vue init webpack 
+ 
+ ## 移动端事件touch、tap、swipe
+ + 1. click事件  
+单击事件，类似于PC端的click，但在移动端中，连续click的触发有200ms ~ 300ms的延迟，可以通过使用fastclick.js解决  
+ + 2. touch类事件  
+触摸事件:  
+有touchStart touchMove touchEnd touchCancel 四种之分    
+  touchStart：手指触摸到屏幕会触发  
+  touchMove：当手指在屏幕上移动时，会触发  
+  touchEnd：当手指离开屏幕时，会触发  
+  touchCancel：可由系统进行的触发，比如手指触摸屏幕的时候，突然alert了一下，或者系统中其他打断了touch的行为，则可以触发该事件  
+ + 滚动类事件
+  scrollStart - 滚动开始时触发
+  scroll - 滚动时触发
+  scrollCancel - 取消滚动时触发
+  scrollEnd - 滚动结束时触发
+ + 3. tap类事件  
+触碰事件，我目前还不知道它和touch的区别，一般用于代替click事件，有tap longTap singleTap doubleTap四种之分  
+tap: 手指碰一下屏幕会触发    
+longTap: 手指长按屏幕会触发  
+singleTap: 手指碰一下屏幕会触发  
+doubleTap: 手指双击屏幕会触发  
++ 4. swipe类事件  
+滑动事件，有swipe swipeLeft swipeRight swipeUp swipeDown 五种之分  
+swipe：手指在屏幕上滑动时会触发  
+swipeLeft：手指在屏幕上向左滑动时会触发  
+swipeRight：手指在屏幕上向右滑动时会触发  
+swipeUp：手指在屏幕上向上滑动时会触发  
+swipeDown：手指在屏幕上向下滑动时会触发  
