@@ -6,7 +6,7 @@
        <Loading v-if="isLoading"></Loading>
        <div v-else id="content" class="contentDetail">
            <div class="detail_list">
-               <div class="detail_list_bg" :style="{ 'background-image':'url('+ detailList.img + ');'}"></div>
+               <div class="detail_list_bg" :style="{backgroundImage:'url(' + detailList.img.replace(/w\.h/,'148.208') + ')'}"></div>
                <div class="detail_list_filter"></div>
                <div class="detail_list_content">
                    <div class="detail_list_img">
