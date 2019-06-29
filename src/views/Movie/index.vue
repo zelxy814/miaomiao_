@@ -14,24 +14,26 @@
                     <i class="iconfont icon-sousuo"></i>
                 </router-link>
             </div>
+            <!--二级路由-->
+            <!--keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。-->
             <keep-alive>
                 <router-view />
             </keep-alive>
         </div>
         <TabBarVue></TabBarVue>
+        <!--视图路由-->
+        <router-view name="detail"></router-view>
     </div>
 </template>
 
 <script>
     import HeaderVue from '@/components/Header'
     import TabBarVue from '@/components/TabBar'
-    import MessageBox from "@/components/Js/messageBox"
     export default {
         name: "Movie",
         components:{
             HeaderVue,
             TabBarVue,
-            MessageBox
         }
     }
 </script>

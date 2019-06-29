@@ -10,9 +10,9 @@
                 <!--在web手机端，clikc会有200-300ms的延时，所以要用tap代替click作为点击事件，
                 singleTap和doubleTap分别作为单次点击和双击，但是使用tap会带来点透事件(事件穿透)。
                 -->
-                <div class="pic_show" @tap="handleToDetail"><img :src="item.img | setWH('128.180')"></div>
+                <div class="pic_show" @tap="handleToDetail(item.id)"><img :src="item.img | setWH('128.180')"></div>
                 <div class="info_list">
-                    <h2>{{item.nm}}<img v-if="item.version" src="@/assets/maxs.png" alt=""></h2>
+                    <h2 @tap="handleToDetail(item.id)">{{item.nm}}<img v-if="item.version" src="@/assets/maxs.png" alt=""></h2>
                     <p>观众评 <span class="grade">{{item.sc}}</span></p>
                     <p>主演: {{item.star}}</p>
                     <p>{{item.showInfo}}</p>
@@ -90,8 +90,9 @@
             });
         },
         methods:{
-            handleToDetail(){
-                console.log("kkk");
+            // 动态id，调到详情页
+            handleToDetail(id){
+                this.$router.push('/movie/detail/'+id);
             },
             handleToScroll(pos){
                 if(pos.y > 30){

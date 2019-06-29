@@ -20,6 +20,16 @@ export default{
             path:'search',
             component:()=>import('@/components/Search')
         },
+        {    // 视图路由
+            path: 'detail/:id',
+            components: {
+                detail: () => import('@/views/Movie/detail')
+            },
+            // 多个显示区域
+            props: {
+                detail: true
+            }
+        },
         {
             path:'/movie',
             redirect:'/movie/nowPlaying'
